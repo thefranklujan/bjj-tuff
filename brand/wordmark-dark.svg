@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 140" width="600" height="140" role="img" aria-label="BJJ Tuff">
-  <title>BJJ Tuff — wordmark, dark background variant</title>
-  <g font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Condensed Bold', sans-serif" fill="#F5F1EA" text-anchor="start">
-    <text x="0" y="110" font-size="120" letter-spacing="4">BJJ TUFF</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160" role="img" aria-label="BJJ Tuff">
+  <title>BJJ Tuff — primary wordmark (for dark backgrounds): BJJ bone, TUFF blood, dot accent</title>
+  <g font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Condensed Bold', sans-serif" font-size="140" letter-spacing="4">
+    <text x="0" y="128" fill="#F5F1EA">BJJ</text>
+    <text x="296" y="128" fill="#E63946">TUFF</text>
   </g>
-  <rect x="558" y="34" width="22" height="22" fill="#E63946"/>
+  <rect x="668" y="86" width="28" height="28" fill="#E63946"/>
 </svg>

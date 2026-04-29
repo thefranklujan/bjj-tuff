@@ -14,16 +14,14 @@
     background-image:
       radial-gradient(800px 500px at 80% 30%, rgba(230, 57, 70, 0.10), transparent 65%),
       radial-gradient(500px 300px at 10% 80%, rgba(245, 241, 234, 0.04), transparent 65%);
-    display: grid;
-    grid-template-columns: 1fr 350px;
-    align-items: center;
-    padding: 80px;
-    gap: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 100px;
+    gap: 32px;
   }
-  .left { display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
   .wordmark {
     font-family: "Anton", "Impact", "Arial Narrow Bold", sans-serif;
-    color: #F5F1EA;
     font-size: 220px;
     line-height: 0.86;
     letter-spacing: -0.005em;
@@ -32,52 +30,31 @@
     position: relative;
     display: inline-block;
   }
+  .wordmark .bjj { color: #F5F1EA; }
+  .wordmark .tuff { color: #E63946; }
   .wordmark .dot {
-    position: absolute;
-    bottom: 16px;
-    right: -36px;
-    width: 26px;
-    height: 26px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
     background: #E63946;
+    margin-left: 14px;
+    vertical-align: baseline;
+    transform: translateY(-6px);
   }
   .meta {
     font-family: "JetBrains Mono", "Menlo", monospace;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: rgba(245, 241, 234, 0.6);
-    margin-top: 8px;
+    margin-top: 24px;
   }
-  .patch {
-    width: 350px;
-    height: 350px;
-    background: #E63946;
-    box-shadow: inset 0 0 0 4px rgba(0,0,0,0.06), 0 8px 0 rgba(0,0,0,0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #F5F1EA;
-    font-family: "Anton", "Impact", "Arial Narrow Bold", sans-serif;
-    text-transform: uppercase;
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    font-weight: 400;
-  }
-  .patch .top { font-size: 150px; }
-  .patch .bottom { font-size: 84px; margin-top: 12px; }
 </style>
 </head>
 <body>
 <div class="canvas">
-  <div class="left">
-    <div class="wordmark">BJJ<br/>TUFF<span class="dot"></span></div>
-    <div class="meta">SOLO BJJ FITNESS · FREE ON YOUTUBE</div>
-  </div>
-  <div class="patch">
-    <div class="top">BJJ</div>
-    <div class="bottom">TUFF</div>
-  </div>
+  <div class="wordmark"><span class="bjj">BJJ</span> <span class="tuff">TUFF</span><span class="dot"></span></div>
+  <div class="meta">SOLO BJJ FITNESS · FREE ON YOUTUBE · SOFIA · OLIVIA · ARIANA</div>
 </div>
 </body>
 </html>
