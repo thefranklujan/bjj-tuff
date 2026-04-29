@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="BJJ Tuff">
+  <title>BJJ Tuff — single color outline mark (for 1-thread embroidery, etching, foil stamp)</title>
+  <rect x="4" y="4" width="192" height="192" fill="none" stroke="currentColor" stroke-width="8"/>
+  <g font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Condensed Bold', sans-serif" fill="currentColor" text-anchor="middle">
+    <text x="100" y="92" font-size="84" letter-spacing="3">BJJ</text>
+    <text x="100" y="160" font-size="46" letter-spacing="4">TUFF</text>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="BJJ Tuff">
+  <title>BJJ Tuff — favicon (BT monogram for tiny sizes)</title>
+  <rect width="64" height="64" fill="#E63946"/>
+  <g font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Condensed Bold', sans-serif" fill="#F5F1EA" text-anchor="middle">
+    <text x="32" y="46" font-size="44" letter-spacing="1">BT</text>
+  </g>
+</svg>

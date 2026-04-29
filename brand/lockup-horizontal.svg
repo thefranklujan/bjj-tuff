@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720" height="200" role="img" aria-label="BJJ Tuff">
+  <title>BJJ Tuff — horizontal lockup (mark + wordmark, default colors)</title>
+
+  <!-- Square mark -->
+  <rect width="200" height="200" fill="#E63946"/>
+  <g font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Condensed Bold', sans-serif" fill="#F5F1EA" text-anchor="middle">
+    <text x="100" y="92" font-size="84" letter-spacing="3">BJJ</text>
+    <text x="100" y="160" font-size="46" letter-spacing="4">TUFF</text>
+  </g>
+
+  <!-- Wordmark beside -->
+  <g font-family="Anton, Impact, 'Arial Narrow Bold', 'Helvetica Condensed Bold', sans-serif" fill="#0A0A0A" text-anchor="start">
+    <text x="248" y="135" font-size="120" letter-spacing="4">BJJ TUFF</text>
+  </g>
+
+  <!-- Brand dot -->
+  <rect x="690" y="58" width="20" height="20" fill="#E63946"/>
+</svg>

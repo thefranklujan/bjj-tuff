@@ -1,9 +1,9 @@
-# BJJ Tough — Design Spec
+# BJJ Tuff — Design Spec
 
 **Version:** 2.0.0 (2026-04-28)
 **Status:** Locked. No deviations without Frank's approval.
 
-> v2 expands BJJ Tough from a future workout app into a sister-led BJJ fitness content + commerce brand. Three pillars: content (YouTube long form + Instagram/TikTok daily drops), cast (Sofia, Olivia, and Ariana on camera), and commerce (rash guards, shirts, mats, accessories). Same locked visual system (ink / bone / blood, Anton + DM Sans).
+> v2 expands BJJ Tuff from a future workout app into a sister-led BJJ fitness content + commerce brand. Three pillars: content (YouTube long form + Instagram/TikTok daily drops), cast (Sofia, Olivia, and Ariana on camera), and commerce (rash guards, shirts, mats, accessories). Same locked visual system (ink / bone / blood, Anton + DM Sans).
 
 ---
 
@@ -100,9 +100,9 @@ Single page, vertically stacked:
 - **Build:** Plain `index.html` with embedded `<style>`. No framework. Vercel static.
 - **Form Handler:** `https://formsubmit.co/frank@craftedsystems.io`.
 - **Social handles (placeholder, register before launch):**
-  - YouTube: `youtube.com/@bjjtough`
-  - Instagram: `instagram.com/bjjtough`
-  - TikTok: `tiktok.com/@bjjtough`
+  - YouTube: `youtube.com/@bjjtuff`
+  - Instagram: `instagram.com/bjjtuff`
+  - TikTok: `tiktok.com/@bjjtuff`
 - **Shop:** "Drop 01 coming soon" framing pre-launch. When the shop goes live, swap the shop section CTAs to point at the Shopify (or chosen) storefront.
 
 ---

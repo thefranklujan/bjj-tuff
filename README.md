@@ -1,4 +1,4 @@
-# BJJ Tough
+# BJJ Tuff
 
 Solo Brazilian Jiu Jitsu fitness. No sparring. No belts. Strength, flexibility, and skill drilled at pace.
 
@@ -44,4 +44,4 @@ To migrate to Airtable or Mailchimp later, swap the `action="..."` attribute on 
 
 ## Custom domain
 
-Point the chosen domain (e.g., `bjjtough.com`) at the Vercel project. Vercel will issue the SSL certificate automatically.
+Point the chosen domain (e.g., `bjjtuff.com`) at the Vercel project. Vercel will issue the SSL certificate automatically.
