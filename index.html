@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>BJJ Tough. The fight without the fight.</title>
+  <meta name="description" content="Solo Brazilian Jiu Jitsu fitness. No sparring. No belts. Just strength, flexibility, and skill drilled at pace." />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <meta property="og:title" content="BJJ Tough. The fight without the fight." />
+  <meta property="og:description" content="Solo Brazilian Jiu Jitsu fitness. No sparring. No belts. Just strength, flexibility, and skill drilled at pace." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #0A0A0A;
+      --bone: #F5F1EA;
+      --bone-soft: rgba(245, 241, 234, 0.7);
+      --bone-faint: rgba(245, 241, 234, 0.5);
+      --blood: #E63946;
+      --steel: #1C1C1C;
+      --hairline: rgba(245, 241, 234, 0.1);
+      --font-display: "Anton", "Impact", sans-serif;
+      --font-body: "DM Sans", system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", "Menlo", monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--ink);
+      color: var(--bone);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+    @media (min-width: 768px) {
+      .container { padding-inline: 48px; }
+    }
+
+    /* HEADER */
+    header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      padding-block: 28px;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wordmark {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone);
+      text-decoration: none;
+    }
+    .wordmark .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--blood);
+      margin-left: 6px;
+      transform: translateY(-2px);
+    }
+    .header-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--bone-faint);
+      text-transform: uppercase;
+    }
+    @media (max-width: 540px) {
+      .header-meta { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: 160px 96px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(800px 600px at 80% 20%, rgba(230, 57, 70, 0.08), transparent 60%),
+        radial-gradient(600px 400px at 10% 90%, rgba(245, 241, 234, 0.04), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blood);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--blood);
+    }
+    h1.hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 12vw, 168px);
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    h1.hero-title .accent {
+      color: var(--blood);
+      display: inline-block;
+    }
+    .hero-sub {
+      font-size: clamp(18px, 2.4vw, 24px);
+      line-height: 1.4;
+      max-width: 620px;
+      color: var(--bone-soft);
+      margin-bottom: 56px;
+    }
+
+    /* CTA FORM */
+    .waitlist {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 560px;
+    }
+    .waitlist-row {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      border-bottom: 1px solid var(--bone);
+      transition: border-color 200ms ease;
+    }
+    .waitlist-row:focus-within {
+      border-bottom-color: var(--blood);
+    }
+    .waitlist-row input[type="email"] {
+      flex: 1;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      color: var(--bone);
+      font-family: var(--font-body);
+      font-size: 18px;
+      padding: 16px 0;
+      min-width: 0;
+    }
+    .waitlist-row input[type="email"]::placeholder {
+      color: var(--bone-faint);
+    }
+    .btn-primary {
+      background: var(--blood);
+      color: var(--bone);
+      border: 0;
+      padding: 16px 28px;
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background: var(--bone);
+      color: var(--ink);
+      outline: 0;
+    }
+    .form-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--bone-faint);
+      text-transform: uppercase;
+    }
+    @media (max-width: 540px) {
+      .waitlist-row {
+        flex-direction: column;
+        border-bottom: 0;
+      }
+      .waitlist-row input[type="email"] {
+        border-bottom: 1px solid var(--bone);
+        padding: 16px 0;
+      }
+      .waitlist-row:focus-within input[type="email"] {
+        border-bottom-color: var(--blood);
+      }
+      .btn-primary { width: 100%; padding: 20px; }
+    }
+
+    /* SECTIONS */
+    section.block {
+      padding-block: 96px;
+      border-top: 1px solid var(--hairline);
+    }
+    @media (min-width: 768px) {
+      section.block { padding-block: 144px; }
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bone-faint);
+      margin-bottom: 32px;
+    }
+    .section-label .num {
+      color: var(--blood);
+      margin-right: 12px;
+    }
+
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 7vw, 88px);
+      line-height: 0.92;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      font-weight: 400;
+      max-width: 18ch;
+      margin-bottom: 48px;
+    }
+    h2 .accent { color: var(--blood); }
+
+    .lead {
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.45;
+      max-width: 720px;
+      color: var(--bone-soft);
+    }
+
+    /* WHAT IT IS — split */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    @media (min-width: 900px) {
+      .split { grid-template-columns: 1.2fr 1fr; gap: 96px; }
+    }
+    .versus {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .versus-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .versus-row:last-child { border-bottom: 0; }
+    .versus-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .versus-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bone-faint);
+    }
+    .versus-col.dojo .versus-tag::before {
+      content: "× ";
+      color: var(--blood);
+    }
+    .versus-col.tough .versus-tag::before {
+      content: "✓ ";
+      color: var(--bone);
+    }
+    .versus-col.dojo .versus-text {
+      color: var(--bone-faint);
+      text-decoration: line-through;
+    }
+    .versus-col.tough .versus-text {
+      color: var(--bone);
+      font-weight: 500;
+    }
+    .versus-text {
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    /* WHAT YOU GET — three columns */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    @media (min-width: 900px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 64px; }
+    }
+    .pillar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      line-height: 1;
+      color: var(--blood);
+      letter-spacing: 0.02em;
+    }
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .pillar-body {
+      color: var(--bone-soft);
+      line-height: 1.55;
+    }
+
+    /* HOW IT WORKS — steps */
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      padding-block: 32px;
+      border-bottom: 1px solid var(--hairline);
+      align-items: baseline;
+    }
+    @media (min-width: 768px) {
+      .step {
+        grid-template-columns: 120px 1fr 2fr;
+        gap: 48px;
+        padding-block: 48px;
+      }
+    }
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--blood);
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 36px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .step-body {
+      color: var(--bone-soft);
+      line-height: 1.5;
+      grid-column: 2;
+    }
+    @media (min-width: 768px) {
+      .step-body { grid-column: auto; }
+    }
+
+    /* CTA SECTION */
+    .cta-block {
+      padding-block: 144px;
+      text-align: center;
+      border-top: 1px solid var(--hairline);
+    }
+    .cta-block .container { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+    .cta-block h2 {
+      max-width: 16ch;
+      text-align: center;
+    }
+    .cta-block .waitlist {
+      width: 100%;
+      max-width: 560px;
+      align-items: stretch;
+    }
+
+    /* FOOTER */
+    footer {
+      padding-block: 48px;
+      border-top: 1px solid var(--hairline);
+    }
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone-faint);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms var(--ease-out, ease), transform 700ms var(--ease-out, ease);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      padding: 24px;
+      border: 1px solid var(--blood);
+      color: var(--bone);
+    }
+    .form-success.show { display: block; }
+    .form-success .label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blood);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="#top" class="wordmark">BJJ Tough<span class="dot" aria-hidden="true"></span></a>
+      <span class="header-meta">Coming 2026</span>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-eyebrow reveal">Solo BJJ. Built for fitness.</div>
+        <h1 class="hero-title reveal">
+          The fight<br />
+          without<br />
+          the <span class="accent">fight.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          Brazilian Jiu Jitsu strength, flexibility, and skill. Drilled solo at pace. No sparring. No belts. No politics. Just the work.
+        </p>
+
+        <form class="waitlist reveal" action="https://formsubmit.co/frank@craftedsystems.io" method="POST" data-form="hero">
+          <input type="hidden" name="_subject" value="BJJ Tough Waitlist Signup" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="source" value="hero" />
+          <input type="hidden" name="_next" value="https://bjjtough.com/?status=joined" />
+          <div class="waitlist-row">
+            <label for="email-hero" class="visually-hidden" style="position:absolute;left:-9999px;">Email</label>
+            <input id="email-hero" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            <button type="submit" class="btn-primary">Join the waitlist</button>
+          </div>
+          <p class="form-meta">Early-access drops first. No spam. Unsubscribe in one tap.</p>
+          <div class="form-success" role="status" aria-live="polite">
+            <div class="label">You're on the list</div>
+            <div>Watch your inbox. Round one starts soon.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- WHAT IT IS -->
+    <section class="block" id="what">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">01</span> What it is</div>
+        <h2 class="section-title reveal">Grappling fitness. <span class="accent">Mat optional.</span></h2>
+        <div class="split">
+          <p class="lead reveal">
+            Most people will never spar. They want what BJJ gives the body. The hips. The grip. The core. The patience. We pulled the moves out of the gym, set them to a clock, and built a workout you can do on a mat in your living room.
+          </p>
+          <div class="versus reveal" aria-label="What it is and is not">
+            <div class="versus-row">
+              <div class="versus-col dojo"><span class="versus-tag">Old way</span><span class="versus-text">Belt rank politics</span></div>
+              <div class="versus-col tough"><span class="versus-tag">BJJ Tough</span><span class="versus-text">No belts. Show up.</span></div>
+            </div>
+            <div class="versus-row">
+              <div class="versus-col dojo"><span class="versus-tag">Old way</span><span class="versus-text">Sparring injuries</span></div>
+              <div class="versus-col tough"><span class="versus-tag">BJJ Tough</span><span class="versus-text">Solo drills only.</span></div>
+            </div>
+            <div class="versus-row">
+              <div class="versus-col dojo"><span class="versus-tag">Old way</span><span class="versus-text">$200 a month dojo</span></div>
+              <div class="versus-col tough"><span class="versus-tag">BJJ Tough</span><span class="versus-text">A floor and a clock.</span></div>
+            </div>
+            <div class="versus-row">
+              <div class="versus-col dojo"><span class="versus-tag">Old way</span><span class="versus-text">Lifestyle commitment</span></div>
+              <div class="versus-col tough"><span class="versus-tag">BJJ Tough</span><span class="versus-text">A workout. Period.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="block" id="get">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">02</span> What you get</div>
+        <h2 class="section-title reveal">Three things. <span class="accent">Built to last.</span></h2>
+        <div class="grid-3">
+          <div class="pillar reveal">
+            <div class="pillar-num">01</div>
+            <div class="pillar-title">Strength</div>
+            <p class="pillar-body">Hip escapes, technical stand-ups, sit-throughs. Every movement loads the posterior chain and core. You finish sore in places the gym misses.</p>
+          </div>
+          <div class="pillar reveal">
+            <div class="pillar-num">02</div>
+            <div class="pillar-title">Flexibility</div>
+            <p class="pillar-body">Guards, granbys, breakdancer transitions. Range of motion built through pattern, not passive stretching. Hips, shoulders, spine, ankles.</p>
+          </div>
+          <div class="pillar reveal">
+            <div class="pillar-num">03</div>
+            <div class="pillar-title">Skill</div>
+            <p class="pillar-body">You learn the moves. Real ones. Coached, named, drilled to muscle memory. So if you ever step on a mat, your body already knows the shapes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="block" id="how">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">03</span> How it works</div>
+        <h2 class="section-title reveal">Press play. <span class="accent">Hit the mat.</span></h2>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <div class="step-title">Pick a round</div>
+            <p class="step-body">15, 25, or 45 minute sessions. Strength focus. Flexibility focus. Or skill drills. Daily new content.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">02</div>
+            <div class="step-title">Drill at pace</div>
+            <p class="step-body">A coach calls the move. A timer runs the round. You move. No sparring partner. No belt to chase.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">03</div>
+            <div class="step-title">Stack the rounds</div>
+            <p class="step-body">Track your work. Build a streak. Watch the body change. Feel the shapes lock in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-block" id="cta">
+      <div class="container">
+        <div class="section-label reveal" style="text-align:center;">First class is on us</div>
+        <h2 class="section-title reveal" style="text-align:center;margin-inline:auto;">Round one. <span class="accent">On the mat.</span></h2>
+        <form class="waitlist reveal" action="https://formsubmit.co/frank@craftedsystems.io" method="POST" data-form="cta">
+          <input type="hidden" name="_subject" value="BJJ Tough Waitlist Signup" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="source" value="cta" />
+          <input type="hidden" name="_next" value="https://bjjtough.com/?status=joined" />
+          <div class="waitlist-row">
+            <label for="email-cta" style="position:absolute;left:-9999px;">Email</label>
+            <input id="email-cta" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            <button type="submit" class="btn-primary">Reserve my spot</button>
+          </div>
+          <p class="form-meta" style="text-align:center;">Early-access drops first. No spam. Unsubscribe in one tap.</p>
+          <div class="form-success" role="status" aria-live="polite">
+            <div class="label">You're on the list</div>
+            <div>Watch your inbox. Round one starts soon.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="#top" class="wordmark" style="font-size:18px;">BJJ Tough<span class="dot" aria-hidden="true"></span></a>
+      <span class="footer-meta">© 2026 BJJ Tough. A Crafted &amp; Company brand.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection-based reveal
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -64px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // If returning from formsubmit success, show inline confirmation on the closest form
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('status') === 'joined') {
+        document.querySelectorAll('.form-success').forEach(function (el) { el.classList.add('show'); });
+        var heroForm = document.querySelector('form[data-form="hero"] .waitlist-row');
+        if (heroForm) heroForm.style.display = 'none';
+        var ctaForm = document.querySelector('form[data-form="cta"] .waitlist-row');
+        if (ctaForm) ctaForm.style.display = 'none';
+        var metas = document.querySelectorAll('.form-meta');
+        metas.forEach(function (m) { m.style.display = 'none'; });
+      }
+    })();
+  </script>
+</body>
+</html>
