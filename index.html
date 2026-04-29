@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>BJJ Tough. The fight without the fight.</title>
-  <meta name="description" content="Solo Brazilian Jiu Jitsu fitness. No sparring. No belts. Just strength, flexibility, and skill drilled at pace." />
+  <meta name="description" content="Sister-led BJJ fitness. Free workouts on YouTube. Daily drills on Instagram and TikTok. Plus app, merch, and an entire ecosystem. Cast: Sofia, Olivia, and Ariana." />
   <meta name="theme-color" content="#0A0A0A" />
 
   <meta property="og:title" content="BJJ Tough. The fight without the fight." />
-  <meta property="og:description" content="Solo Brazilian Jiu Jitsu fitness. No sparring. No belts. Just strength, flexibility, and skill drilled at pace." />
+  <meta property="og:description" content="Sister-led BJJ fitness. Free on YouTube. Daily on socials. Plus app, merch, ecosystem." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,11 +22,15 @@
       --bone-soft: rgba(245, 241, 234, 0.7);
       --bone-faint: rgba(245, 241, 234, 0.5);
       --blood: #E63946;
+      --blood-bright: #FF5963;
       --steel: #1C1C1C;
+      --steel-deep: #141414;
       --hairline: rgba(245, 241, 234, 0.1);
+      --hairline-strong: rgba(245, 241, 234, 0.2);
       --font-display: "Anton", "Impact", sans-serif;
       --font-body: "DM Sans", system-ui, sans-serif;
       --font-mono: "JetBrains Mono", "Menlo", monospace;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,6 +68,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
     }
     .wordmark {
       font-family: var(--font-display);
@@ -81,15 +86,25 @@
       margin-left: 6px;
       transform: translateY(-2px);
     }
-    .header-meta {
+    .header-link {
       font-family: var(--font-mono);
       font-size: 12px;
+      font-weight: 500;
       letter-spacing: 0.08em;
-      color: var(--bone-faint);
       text-transform: uppercase;
+      color: var(--bone);
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid var(--hairline-strong);
+      transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+    }
+    .header-link:hover {
+      background: var(--bone);
+      color: var(--ink);
+      border-color: var(--bone);
     }
     @media (max-width: 540px) {
-      .header-meta { display: none; }
+      .header-link { font-size: 11px; padding: 8px 14px; }
     }
 
     /* HERO */
@@ -108,7 +123,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(800px 600px at 80% 20%, rgba(230, 57, 70, 0.08), transparent 60%),
+        radial-gradient(800px 600px at 80% 20%, rgba(230, 57, 70, 0.10), transparent 60%),
         radial-gradient(600px 400px at 10% 90%, rgba(245, 241, 234, 0.04), transparent 60%);
       pointer-events: none;
     }
@@ -117,17 +132,20 @@
       font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--blood);
+      color: var(--blood-bright);
       margin-bottom: 32px;
       display: flex;
       align-items: center;
       gap: 12px;
+      max-width: 100%;
+      flex-wrap: wrap;
     }
     .hero-eyebrow::before {
       content: "";
       width: 32px;
       height: 1px;
-      background: var(--blood);
+      background: var(--blood-bright);
+      flex-shrink: 0;
     }
     h1.hero-title {
       font-family: var(--font-display);
@@ -138,16 +156,31 @@
       font-weight: 400;
       margin-bottom: 32px;
     }
-    h1.hero-title .accent {
-      color: var(--blood);
-      display: inline-block;
-    }
+    h1.hero-title .accent { color: var(--blood); }
     .hero-sub {
       font-size: clamp(18px, 2.4vw, 24px);
       line-height: 1.4;
-      max-width: 620px;
+      max-width: 680px;
       color: var(--bone-soft);
-      margin-bottom: 56px;
+      margin-bottom: 48px;
+    }
+    .hero-pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 48px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bone-soft);
+    }
+    .hero-pillars span { display: flex; align-items: center; gap: 8px; }
+    .hero-pillars span::before {
+      content: "";
+      width: 5px; height: 5px;
+      background: var(--blood);
+      border-radius: 999px;
     }
 
     /* CTA FORM */
@@ -155,7 +188,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      max-width: 560px;
+      max-width: 580px;
     }
     .waitlist-row {
       display: flex;
@@ -164,9 +197,7 @@
       border-bottom: 1px solid var(--bone);
       transition: border-color 200ms ease;
     }
-    .waitlist-row:focus-within {
-      border-bottom-color: var(--blood);
-    }
+    .waitlist-row:focus-within { border-bottom-color: var(--blood-bright); }
     .waitlist-row input[type="email"] {
       flex: 1;
       background: transparent;
@@ -178,9 +209,7 @@
       padding: 16px 0;
       min-width: 0;
     }
-    .waitlist-row input[type="email"]::placeholder {
-      color: var(--bone-faint);
-    }
+    .waitlist-row input[type="email"]::placeholder { color: var(--bone-faint); }
     .btn-primary {
       background: var(--blood);
       color: var(--bone);
@@ -215,11 +244,39 @@
         border-bottom: 1px solid var(--bone);
         padding: 16px 0;
       }
-      .waitlist-row:focus-within input[type="email"] {
-        border-bottom-color: var(--blood);
-      }
+      .waitlist-row:focus-within input[type="email"] { border-bottom-color: var(--blood-bright); }
       .btn-primary { width: 100%; padding: 20px; }
     }
+
+    /* SOCIAL LINK STRIP */
+    .social-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hairline);
+    }
+    .social-strip a {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bone);
+      text-decoration: none;
+      padding: 14px 20px 14px 0;
+      margin-right: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 200ms ease;
+    }
+    .social-strip a:hover { color: var(--blood-bright); }
+    .social-strip a .arrow {
+      font-size: 14px;
+      transition: transform 200ms ease;
+    }
+    .social-strip a:hover .arrow { transform: translate(2px, -2px); }
 
     /* SECTIONS */
     section.block {
@@ -239,8 +296,18 @@
       margin-bottom: 32px;
     }
     .section-label .num {
-      color: var(--blood);
+      color: var(--blood-bright);
       margin-right: 12px;
+    }
+    .section-label .tag {
+      display: inline-block;
+      margin-left: 16px;
+      padding: 4px 10px;
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--blood-bright);
+      border: 1px solid rgba(230, 57, 70, 0.4);
+      font-size: 11px;
+      letter-spacing: 0.1em;
     }
 
     h2.section-title {
@@ -256,8 +323,8 @@
     h2 .accent { color: var(--blood); }
 
     .lead {
-      font-size: clamp(20px, 2.2vw, 26px);
-      line-height: 1.45;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.5;
       max-width: 720px;
       color: var(--bone-soft);
     }
@@ -271,11 +338,7 @@
     @media (min-width: 900px) {
       .split { grid-template-columns: 1.2fr 1fr; gap: 96px; }
     }
-    .versus {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+    .versus { display: flex; flex-direction: column; gap: 24px; }
     .versus-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -284,11 +347,7 @@
       border-bottom: 1px solid var(--hairline);
     }
     .versus-row:last-child { border-bottom: 0; }
-    .versus-col {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .versus-col { display: flex; flex-direction: column; gap: 8px; }
     .versus-tag {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -296,28 +355,260 @@
       text-transform: uppercase;
       color: var(--bone-faint);
     }
-    .versus-col.dojo .versus-tag::before {
-      content: "× ";
-      color: var(--blood);
+    .versus-col.dojo .versus-tag::before { content: "× "; color: var(--blood); }
+    .versus-col.tough .versus-tag::before { content: "✓ "; color: var(--bone); }
+    .versus-col.dojo .versus-text { color: var(--bone-faint); text-decoration: line-through; }
+    .versus-col.tough .versus-text { color: var(--bone); font-weight: 500; }
+    .versus-text { font-size: 17px; line-height: 1.4; }
+
+    /* CAST GRID */
+    .cast-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
-    .versus-col.tough .versus-tag::before {
-      content: "✓ ";
+    @media (min-width: 768px) {
+      .cast-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    }
+    .cast-card {
+      background: var(--steel);
+      border: 1px solid var(--hairline);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: border-color 300ms ease, transform 300ms ease;
+      min-height: 280px;
+    }
+    .cast-card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0;
+      background: var(--blood);
+      transition: width 300ms ease;
+    }
+    .cast-card:hover {
+      border-color: var(--hairline-strong);
+      transform: translateY(-4px);
+    }
+    .cast-card:hover::before { width: 4px; }
+    .cast-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--blood-bright);
+      text-transform: uppercase;
+    }
+    .cast-name {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 56px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
       color: var(--bone);
+      line-height: 1;
     }
-    .versus-col.dojo .versus-text {
-      color: var(--bone-faint);
-      text-decoration: line-through;
+    .cast-role {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--bone-soft);
     }
-    .versus-col.tough .versus-text {
-      color: var(--bone);
-      font-weight: 500;
-    }
-    .versus-text {
-      font-size: 17px;
-      line-height: 1.4;
+    .cast-body {
+      color: var(--bone-soft);
+      font-size: 15px;
+      line-height: 1.5;
+      margin-top: auto;
     }
 
-    /* WHAT YOU GET — three columns */
+    /* PLATFORM CARDS */
+    .platforms {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .platforms { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    }
+    .platform-card {
+      background: var(--steel);
+      border: 1px solid var(--hairline);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-decoration: none;
+      color: var(--bone);
+      transition: border-color 300ms ease, transform 300ms ease;
+      min-height: 280px;
+    }
+    .platform-card:hover {
+      border-color: var(--blood);
+      transform: translateY(-4px);
+    }
+    .platform-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bone-faint);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .platform-meta .arrow { color: var(--blood-bright); font-size: 16px; transition: transform 200ms ease; }
+    .platform-card:hover .platform-meta .arrow { transform: translate(2px, -2px); color: var(--bone); }
+    .platform-name {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 52px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .platform-format {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blood-bright);
+    }
+    .platform-body {
+      color: var(--bone-soft);
+      font-size: 15px;
+      line-height: 1.5;
+      margin-top: auto;
+    }
+
+    /* PLUS / SUBSCRIPTION */
+    .plus-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 900px) {
+      .plus-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    .tier-card {
+      background: var(--steel);
+      border: 1px solid var(--hairline);
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .tier-card.plus {
+      border-color: var(--blood);
+      background:
+        radial-gradient(400px 240px at 100% 0%, rgba(230, 57, 70, 0.1), transparent 70%),
+        var(--steel);
+    }
+    .tier-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bone-faint);
+    }
+    .tier-card.plus .tier-meta { color: var(--blood-bright); }
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 56px);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .tier-pitch {
+      font-size: 16px;
+      color: var(--bone-soft);
+      line-height: 1.5;
+    }
+    .tier-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+      padding-top: 20px;
+      border-top: 1px solid var(--hairline);
+    }
+    .tier-list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      font-size: 15px;
+      color: var(--bone);
+    }
+    .tier-list li::before {
+      content: "✓";
+      color: var(--blood-bright);
+      font-family: var(--font-mono);
+      font-size: 14px;
+    }
+    .tier-card.free .tier-list li::before { color: var(--bone-faint); }
+
+    /* SHOP */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 600px) {
+      .shop-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .shop-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    }
+    .shop-tile {
+      background: var(--steel);
+      border: 1px solid var(--hairline);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 240px;
+      position: relative;
+      transition: border-color 300ms ease;
+    }
+    .shop-tile:hover { border-color: var(--blood); }
+    .shop-drop {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blood-bright);
+    }
+    .shop-name {
+      font-family: var(--font-display);
+      font-size: 36px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .shop-body {
+      color: var(--bone-soft);
+      font-size: 14px;
+      line-height: 1.45;
+      margin-top: auto;
+    }
+    .shop-tile .badge {
+      position: absolute;
+      top: 24px; right: 24px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bone-faint);
+      border: 1px solid var(--hairline-strong);
+      padding: 4px 8px;
+    }
+
+    /* WHAT YOU GET */
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr;
@@ -326,11 +617,7 @@
     @media (min-width: 900px) {
       .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 64px; }
     }
-    .pillar {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .pillar { display: flex; flex-direction: column; gap: 16px; }
     .pillar-num {
       font-family: var(--font-display);
       font-size: 64px;
@@ -345,12 +632,9 @@
       text-transform: uppercase;
       font-weight: 400;
     }
-    .pillar-body {
-      color: var(--bone-soft);
-      line-height: 1.55;
-    }
+    .pillar-body { color: var(--bone-soft); line-height: 1.55; }
 
-    /* HOW IT WORKS — steps */
+    /* HOW IT WORKS */
     .steps {
       display: grid;
       grid-template-columns: 1fr;
@@ -376,7 +660,7 @@
       font-family: var(--font-mono);
       font-size: 14px;
       letter-spacing: 0.08em;
-      color: var(--blood);
+      color: var(--blood-bright);
     }
     .step-title {
       font-family: var(--font-display);
@@ -385,11 +669,7 @@
       text-transform: uppercase;
       font-weight: 400;
     }
-    .step-body {
-      color: var(--bone-soft);
-      line-height: 1.5;
-      grid-column: 2;
-    }
+    .step-body { color: var(--bone-soft); line-height: 1.5; grid-column: 2; }
     @media (min-width: 768px) {
       .step-body { grid-column: auto; }
     }
@@ -399,17 +679,13 @@
       padding-block: 144px;
       text-align: center;
       border-top: 1px solid var(--hairline);
+      background:
+        radial-gradient(900px 500px at 50% 20%, rgba(230, 57, 70, 0.10), transparent 70%),
+        var(--ink);
     }
     .cta-block .container { display: flex; flex-direction: column; align-items: center; gap: 32px; }
-    .cta-block h2 {
-      max-width: 16ch;
-      text-align: center;
-    }
-    .cta-block .waitlist {
-      width: 100%;
-      max-width: 560px;
-      align-items: stretch;
-    }
+    .cta-block h2 { max-width: 16ch; text-align: center; margin-inline: auto; }
+    .cta-block .waitlist { width: 100%; max-width: 560px; }
 
     /* FOOTER */
     footer {
@@ -430,17 +706,28 @@
       text-transform: uppercase;
       color: var(--bone-faint);
     }
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-social a {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone-soft);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .footer-social a:hover { color: var(--blood-bright); }
 
     /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 700ms var(--ease-out, ease), transform 700ms var(--ease-out, ease);
+      transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
     }
-    .reveal.in {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
@@ -459,7 +746,7 @@
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--blood);
+      color: var(--blood-bright);
       margin-bottom: 8px;
     }
   </style>
@@ -469,7 +756,7 @@
   <header>
     <div class="container">
       <a href="#top" class="wordmark">BJJ Tough<span class="dot" aria-hidden="true"></span></a>
-      <span class="header-meta">Coming 2026</span>
+      <a href="https://youtube.com/@bjjtough" target="_blank" rel="noopener" class="header-link">Watch on YouTube ↗</a>
     </div>
   </header>
 
@@ -478,15 +765,22 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <div class="hero-eyebrow reveal">Solo BJJ. Built for fitness.</div>
+        <div class="hero-eyebrow reveal">Sister-led BJJ fitness. Free on YouTube.</div>
         <h1 class="hero-title reveal">
           The fight<br />
           without<br />
           the <span class="accent">fight.</span>
         </h1>
         <p class="hero-sub reveal">
-          Brazilian Jiu Jitsu strength, flexibility, and skill. Drilled solo at pace. No sparring. No belts. No politics. Just the work.
+          Solo Brazilian Jiu Jitsu drilled at pace, demonstrated by Sofia, Olivia, and Ariana. Free on YouTube. Daily on Instagram and TikTok. Plus app, merch, and a whole ecosystem on the way.
         </p>
+
+        <div class="hero-pillars reveal">
+          <span>Cast</span>
+          <span>Free Channel</span>
+          <span>Plus App</span>
+          <span>Shop</span>
+        </div>
 
         <form class="waitlist reveal" action="https://formsubmit.co/frank@craftedsystems.io" method="POST" data-form="hero">
           <input type="hidden" name="_subject" value="BJJ Tough Waitlist Signup" />
@@ -495,16 +789,22 @@
           <input type="hidden" name="source" value="hero" />
           <input type="hidden" name="_next" value="https://bjjtough.com/?status=joined" />
           <div class="waitlist-row">
-            <label for="email-hero" class="visually-hidden" style="position:absolute;left:-9999px;">Email</label>
+            <label for="email-hero" style="position:absolute;left:-9999px;">Email</label>
             <input id="email-hero" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
             <button type="submit" class="btn-primary">Join the waitlist</button>
           </div>
-          <p class="form-meta">Early-access drops first. No spam. Unsubscribe in one tap.</p>
+          <p class="form-meta">Get the channel launch, Plus early access, and Drop 01 first.</p>
           <div class="form-success" role="status" aria-live="polite">
             <div class="label">You're on the list</div>
             <div>Watch your inbox. Round one starts soon.</div>
           </div>
         </form>
+
+        <div class="social-strip reveal">
+          <a href="https://youtube.com/@bjjtough" target="_blank" rel="noopener">YouTube <span class="arrow">↗</span></a>
+          <a href="https://instagram.com/bjjtough" target="_blank" rel="noopener">Instagram <span class="arrow">↗</span></a>
+          <a href="https://tiktok.com/@bjjtough" target="_blank" rel="noopener">TikTok <span class="arrow">↗</span></a>
+        </div>
       </div>
     </section>
 
@@ -515,7 +815,7 @@
         <h2 class="section-title reveal">Grappling fitness. <span class="accent">Mat optional.</span></h2>
         <div class="split">
           <p class="lead reveal">
-            Most people will never spar. They want what BJJ gives the body. The hips. The grip. The core. The patience. We pulled the moves out of the gym, set them to a clock, and built a workout you can do on a mat in your living room.
+            Most people will never spar. They want what BJJ gives the body. The hips. The grip. The core. The patience. We pulled the moves out of the gym, set them to a clock, and built a workout you can do on a mat in your living room. Three sisters demonstrate every move. You drill along.
           </p>
           <div class="versus reveal" aria-label="What it is and is not">
             <div class="versus-row">
@@ -528,7 +828,7 @@
             </div>
             <div class="versus-row">
               <div class="versus-col dojo"><span class="versus-tag">Old way</span><span class="versus-text">$200 a month dojo</span></div>
-              <div class="versus-col tough"><span class="versus-tag">BJJ Tough</span><span class="versus-text">A floor and a clock.</span></div>
+              <div class="versus-col tough"><span class="versus-tag">BJJ Tough</span><span class="versus-text">Free on YouTube.</span></div>
             </div>
             <div class="versus-row">
               <div class="versus-col dojo"><span class="versus-tag">Old way</span><span class="versus-text">Lifestyle commitment</span></div>
@@ -539,16 +839,145 @@
       </div>
     </section>
 
+    <!-- THE CAST -->
+    <section class="block" id="cast">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">02</span> The cast</div>
+        <h2 class="section-title reveal">Three sisters. <span class="accent">On every round.</span></h2>
+        <p class="lead reveal" style="margin-bottom:64px;">The brand is built around the team on camera. Real sisters. Real movement. Real sweat. They demonstrate every drill, lead every round, and front every drop in the shop.</p>
+        <div class="cast-grid">
+          <div class="cast-card reveal">
+            <div class="cast-num">Cast 01</div>
+            <div class="cast-name">Sofia</div>
+            <div class="cast-role">Drills the entries</div>
+            <p class="cast-body">Sets the pace at the top of every round. Owns the opening sequence and the technique breakdowns.</p>
+          </div>
+          <div class="cast-card reveal">
+            <div class="cast-num">Cast 02</div>
+            <div class="cast-name">Olivia</div>
+            <div class="cast-role">Holds the position</div>
+            <p class="cast-body">Locks in the middle of the round. Owns the transitions, the guards, and the moments where shape becomes strength.</p>
+          </div>
+          <div class="cast-card reveal">
+            <div class="cast-num">Cast 03</div>
+            <div class="cast-name">Ariana</div>
+            <div class="cast-role">Closes the sequence</div>
+            <p class="cast-body">Brings the round home. Owns the finish, the recovery, and the energy that makes you press play again tomorrow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHERE TO DRILL (free channel) -->
+    <section class="block" id="watch">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">03</span> The free channel <span class="tag">Live drops</span></div>
+        <h2 class="section-title reveal">Free workouts. <span class="accent">Three platforms.</span></h2>
+        <p class="lead reveal" style="margin-bottom:48px;">Long form sessions on YouTube. Daily drills on Instagram. Quick rounds on TikTok. All free. All with the cast. All you have to do is press play.</p>
+        <div class="platforms">
+          <a href="https://youtube.com/@bjjtough" target="_blank" rel="noopener" class="platform-card reveal">
+            <div class="platform-meta"><span>Long form</span><span class="arrow">↗</span></div>
+            <div class="platform-name">YouTube</div>
+            <div class="platform-format">15 to 45 min sessions</div>
+            <p class="platform-body">Full workout rounds. Strength focus. Flexibility focus. Skill drills. New session every Monday.</p>
+          </a>
+          <a href="https://instagram.com/bjjtough" target="_blank" rel="noopener" class="platform-card reveal">
+            <div class="platform-meta"><span>Daily Reels</span><span class="arrow">↗</span></div>
+            <div class="platform-name">Instagram</div>
+            <div class="platform-format">60 to 90 sec drills</div>
+            <p class="platform-body">A new drill every day. Single move, single shape, single round. Quick to follow, easy to share.</p>
+          </a>
+          <a href="https://tiktok.com/@bjjtough" target="_blank" rel="noopener" class="platform-card reveal">
+            <div class="platform-meta"><span>Daily TikToks</span><span class="arrow">↗</span></div>
+            <div class="platform-name">TikTok</div>
+            <div class="platform-format">15 to 60 sec rounds</div>
+            <p class="platform-body">Bite size drills, technique breakdowns, and behind the scenes from the cast. Built for the scroll.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLUS / SUBSCRIPTION -->
+    <section class="block" id="plus">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">04</span> The Plus app <span class="tag">Phase 2</span></div>
+        <h2 class="section-title reveal">Free or <span class="accent">Plus.</span></h2>
+        <p class="lead reveal" style="margin-bottom:48px;">The free channel runs forever. Plus is the next layer. Think Peloton, built for BJJ. An on demand library. Structured programs. Live drops with the cast. Across phone, tablet, and TV.</p>
+        <div class="plus-grid">
+          <div class="tier-card free reveal">
+            <div class="tier-meta"><span>Tier 01</span><span>Free forever</span></div>
+            <div class="tier-name">Free</div>
+            <p class="tier-pitch">Everything we drop publicly. The full channel.</p>
+            <ul class="tier-list">
+              <li>Full workout sessions on YouTube</li>
+              <li>Daily drills on Instagram and TikTok</li>
+              <li>Technique breakdowns</li>
+              <li>Cast Q&amp;As and behind the scenes</li>
+            </ul>
+          </div>
+          <div class="tier-card plus reveal">
+            <div class="tier-meta"><span>Tier 02</span><span>Phase 2</span></div>
+            <div class="tier-name">Plus</div>
+            <p class="tier-pitch">A Peloton-style training app, built around BJJ. Everything in Free, plus structure, depth, and ad-free.</p>
+            <ul class="tier-list">
+              <li>On demand library across all sessions</li>
+              <li>Structured programs (30, 60, 90 day)</li>
+              <li>Scheduled live rounds with the cast</li>
+              <li>Streak and progress tracking</li>
+              <li>Member-only deep dives and bonus drops</li>
+              <li>Phone, tablet, web, and TV apps</li>
+              <li>Early access to merch drops</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE SHOP -->
+    <section class="block" id="shop">
+      <div class="container">
+        <div class="section-label reveal"><span class="num">05</span> The shop <span class="tag">Drop 01 incoming</span></div>
+        <h2 class="section-title reveal">Wear the work. <span class="accent">Train on it.</span></h2>
+        <p class="lead reveal" style="margin-bottom:48px;">Apparel and equipment built around the brand. Designed by the cast. Drop 01 lands with the channel launch.</p>
+        <div class="shop-grid">
+          <div class="shop-tile reveal">
+            <span class="badge">Drop 01</span>
+            <div class="shop-drop">Apparel</div>
+            <div class="shop-name">Tees</div>
+            <p class="shop-body">Heavyweight cotton. Cast capsule. Wear it on the mat or off.</p>
+          </div>
+          <div class="shop-tile reveal">
+            <span class="badge">Drop 01</span>
+            <div class="shop-drop">Apparel</div>
+            <div class="shop-name">Rash Guards</div>
+            <p class="shop-body">Long sleeve, short sleeve. Built for the mat. Built to last the round.</p>
+          </div>
+          <div class="shop-tile reveal">
+            <span class="badge">Drop 01</span>
+            <div class="shop-drop">Equipment</div>
+            <div class="shop-name">Mats</div>
+            <p class="shop-body">Roll out, roll up. Living room ready. Same surface the cast trains on.</p>
+          </div>
+          <div class="shop-tile reveal">
+            <span class="badge">Coming</span>
+            <div class="shop-drop">Accessories</div>
+            <div class="shop-name">Gear</div>
+            <p class="shop-body">Grips, mouthguards, gym bags, water bottles. Quietly branded. Built right.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- WHAT YOU GET -->
     <section class="block" id="get">
       <div class="container">
-        <div class="section-label reveal"><span class="num">02</span> What you get</div>
+        <div class="section-label reveal"><span class="num">06</span> What you get</div>
         <h2 class="section-title reveal">Three things. <span class="accent">Built to last.</span></h2>
         <div class="grid-3">
           <div class="pillar reveal">
             <div class="pillar-num">01</div>
             <div class="pillar-title">Strength</div>
-            <p class="pillar-body">Hip escapes, technical stand-ups, sit-throughs. Every movement loads the posterior chain and core. You finish sore in places the gym misses.</p>
+            <p class="pillar-body">Hip escapes, technical stand-ups, sit throughs. Every movement loads the posterior chain and core. You finish sore in places the gym misses.</p>
           </div>
           <div class="pillar reveal">
             <div class="pillar-num">02</div>
@@ -567,23 +996,23 @@
     <!-- HOW IT WORKS -->
     <section class="block" id="how">
       <div class="container">
-        <div class="section-label reveal"><span class="num">03</span> How it works</div>
+        <div class="section-label reveal"><span class="num">07</span> How it works</div>
         <h2 class="section-title reveal">Press play. <span class="accent">Hit the mat.</span></h2>
         <div class="steps">
           <div class="step reveal">
             <div class="step-num">01</div>
-            <div class="step-title">Pick a round</div>
-            <p class="step-body">15, 25, or 45 minute sessions. Strength focus. Flexibility focus. Or skill drills. Daily new content.</p>
+            <div class="step-title">Subscribe + follow</div>
+            <p class="step-body">Hit the channel on YouTube. Follow on Instagram and TikTok. New drop every day, full session every Monday.</p>
           </div>
           <div class="step reveal">
             <div class="step-num">02</div>
-            <div class="step-title">Drill at pace</div>
-            <p class="step-body">A coach calls the move. A timer runs the round. You move. No sparring partner. No belt to chase.</p>
+            <div class="step-title">Press play. Drill at pace.</div>
+            <p class="step-body">A coach calls the move. The cast demonstrates. A timer runs the round. You move. No sparring partner. No belt to chase.</p>
           </div>
           <div class="step reveal">
             <div class="step-num">03</div>
             <div class="step-title">Stack the rounds</div>
-            <p class="step-body">Track your work. Build a streak. Watch the body change. Feel the shapes lock in.</p>
+            <p class="step-body">Track your work. Build a streak. Watch the body change. Bring the cast with you on the mat, on the road, on the couch.</p>
           </div>
         </div>
       </div>
@@ -593,7 +1022,8 @@
     <section class="cta-block" id="cta">
       <div class="container">
         <div class="section-label reveal" style="text-align:center;">First class is on us</div>
-        <h2 class="section-title reveal" style="text-align:center;margin-inline:auto;">Round one. <span class="accent">On the mat.</span></h2>
+        <h2 class="section-title reveal" style="text-align:center;">Round one. <span class="accent">On the mat.</span></h2>
+        <p class="lead reveal" style="text-align:center;margin-inline:auto;">Get the channel launch, Plus early access, and Drop 01 first. One email. We'll handle the rest.</p>
         <form class="waitlist reveal" action="https://formsubmit.co/frank@craftedsystems.io" method="POST" data-form="cta">
           <input type="hidden" name="_subject" value="BJJ Tough Waitlist Signup" />
           <input type="hidden" name="_template" value="table" />
@@ -605,7 +1035,7 @@
             <input id="email-cta" type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
             <button type="submit" class="btn-primary">Reserve my spot</button>
           </div>
-          <p class="form-meta" style="text-align:center;">Early-access drops first. No spam. Unsubscribe in one tap.</p>
+          <p class="form-meta" style="text-align:center;">No spam. Unsubscribe in one tap.</p>
           <div class="form-success" role="status" aria-live="polite">
             <div class="label">You're on the list</div>
             <div>Watch your inbox. Round one starts soon.</div>
@@ -619,12 +1049,16 @@
   <footer>
     <div class="container">
       <a href="#top" class="wordmark" style="font-size:18px;">BJJ Tough<span class="dot" aria-hidden="true"></span></a>
+      <div class="footer-social">
+        <a href="https://youtube.com/@bjjtough" target="_blank" rel="noopener">YouTube ↗</a>
+        <a href="https://instagram.com/bjjtough" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://tiktok.com/@bjjtough" target="_blank" rel="noopener">TikTok ↗</a>
+      </div>
       <span class="footer-meta">© 2026 BJJ Tough. A Crafted &amp; Company brand.</span>
     </div>
   </footer>
 
   <script>
-    // Intersection-based reveal
     (function () {
       var els = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window)) {
@@ -642,17 +1076,12 @@
       els.forEach(function (el) { io.observe(el); });
     })();
 
-    // If returning from formsubmit success, show inline confirmation on the closest form
     (function () {
       var params = new URLSearchParams(window.location.search);
       if (params.get('status') === 'joined') {
         document.querySelectorAll('.form-success').forEach(function (el) { el.classList.add('show'); });
-        var heroForm = document.querySelector('form[data-form="hero"] .waitlist-row');
-        if (heroForm) heroForm.style.display = 'none';
-        var ctaForm = document.querySelector('form[data-form="cta"] .waitlist-row');
-        if (ctaForm) ctaForm.style.display = 'none';
-        var metas = document.querySelectorAll('.form-meta');
-        metas.forEach(function (m) { m.style.display = 'none'; });
+        document.querySelectorAll('form[data-form] .waitlist-row').forEach(function (el) { el.style.display = 'none'; });
+        document.querySelectorAll('form[data-form] .form-meta').forEach(function (m) { m.style.display = 'none'; });
       }
     })();
   </script>

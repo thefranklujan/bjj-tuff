@@ -1,17 +1,23 @@
 # BJJ Tough — Design Spec
 
-**Version:** 1.0.0 (2026-04-28)
+**Version:** 2.0.0 (2026-04-28)
 **Status:** Locked. No deviations without Frank's approval.
+
+> v2 expands BJJ Tough from a future workout app into a sister-led BJJ fitness content + commerce brand. Three pillars: content (YouTube long form + Instagram/TikTok daily drops), cast (Sofia, Olivia, and Ariana on camera), and commerce (rash guards, shirts, mats, accessories). Same locked visual system (ink / bone / blood, Anton + DM Sans).
 
 ---
 
 ## Identity
 
-- **Purpose:** A solo, sparring-free, belt-free fitness regimen built on Brazilian Jiu Jitsu movement. Strength, flexibility, and skill from BJJ shapes, drilled at pace.
-- **Audience:** Adults (25 to 45) who want martial-arts intensity without dojo politics. Curious about BJJ but intimidated by sparring. Already pay for FightCamp, Peloton, F45, or Tonal. Want a workout, not a lifestyle.
-- **Core Action:** Join the early-access waitlist (email).
-- **Feel Words:** Raw. Mat-tested. Honest. High-output. Quiet confidence over hype. No belts, no ego, no excuses.
-- **Category:** Fitness. Sits next to FightCamp, Tae Bo, Zumba, Les Mills BodyCombat. Distinct because it pulls from grappling, not striking or dance.
+- **Purpose:** A sister-led BJJ fitness content and merchandise brand. Free workouts and drills on YouTube, daily short-form drops on Instagram and TikTok, a merchandise line built around the cast and the discipline.
+- **Audience:** Three concentric circles.
+  1. **Core:** Adults (25 to 45) who want martial-arts intensity without dojo politics. Already pay for FightCamp, Peloton, F45, or Tonal.
+  2. **Adjacent:** Parents and kids who train BJJ or want to start. The cast lowers the entry barrier for anyone intimidated by a traditional dojo.
+  3. **Fan layer:** People who follow the channel, buy the merch, and turn the brand into identity.
+- **Core Action:** Join the early-access waitlist (email). Secondary action: follow the channel on YouTube, Instagram, TikTok. Tertiary: shop coming soon.
+- **Cast:** Sofia, Olivia, and Ariana. Three sisters. They demonstrate the moves and lead the rounds. The brand is built around them.
+- **Feel Words:** Raw. Mat-tested. Honest. Family-rooted but not soft. Real movement, real sweat, real sisters.
+- **Category:** Hybrid. Fitness creator brand (Chloe Ting model). Merch-driven creator brand (MrBeast / Logan Paul model). Sits at the intersection of FightCamp, a YouTube fitness channel, and a streetwear-grade combat-sports apparel line.
 
 ---
 
@@ -28,74 +34,85 @@ Dark. Black is the canvas. Bone white is the type. One accent (blood red) reserv
 |-------|-----|-----|
 | `--ink` | `#0A0A0A` | Background, dominant surface |
 | `--bone` | `#F5F1EA` | Primary text, headlines |
-| `--bone-soft` | `#F5F1EA` at 70% | Secondary text, paragraph |
+| `--bone-soft` | `#F5F1EA` at 70% | Secondary text |
 | `--blood` | `#E63946` | Accent, CTAs, highlights only |
 | `--steel` | `#1C1C1C` | Card surfaces, dividers |
 
-Three colors only (ink, bone, blood). Steel is a tonal shift of ink, not a fourth color.
-
 ### Typography
-- **Display:** Anton (Google Fonts). Heavy condensed sans, all caps, tight tracking. Used for H1, H2, section labels.
-- **Body:** DM Sans (Google Fonts). Geometric, wide aperture, sets at 17 to 19px for body, 14 to 15px for meta.
-- **Mono:** JetBrains Mono (Google Fonts). For data, timecodes, labels.
-
-Headline scale (mobile / desktop): 48 / 96. Subhead: 22 / 32. Body: 17 / 19.
+- **Display:** Anton (Google Fonts).
+- **Body:** DM Sans (Google Fonts).
+- **Mono:** JetBrains Mono (Google Fonts).
 
 ### Density
-Generous. Section padding 96px desktop, 64px mobile. Container max width 1200px. Inline spacing on all components matches the spacing law (no Tailwind utility classes for spacing on this build because it's static HTML; explicit pixel values throughout).
+Generous. Section padding 96px desktop, 64px mobile. Container max width 1200px.
 
 ---
 
 ## Taste Parameters
 
-- **DESIGN_VARIANCE:** 7 of 10. Distinctive, not safe. Pushes typographic scale and asymmetric grids.
-- **MOTION_INTENSITY:** 4 of 10. Subtle reveals on scroll, no parallax circus, no autoplay video on mobile.
-- **VISUAL_DENSITY:** 5 of 10. Generous whitespace around bold elements. Brutalist confidence, not stuffed.
+- **DESIGN_VARIANCE:** 7 of 10.
+- **MOTION_INTENSITY:** 4 of 10.
+- **VISUAL_DENSITY:** 5 of 10.
 
 ---
 
 ## Layout
 
-- **Primary Pattern:** Single page, vertically stacked sections. Hero, "What it is," "What you get," "How it works," Waitlist, Footer.
-- **Navigation:** None at launch. The page is the funnel. A small wordmark in the top left, nothing else.
-- **Hero Type:** Full-viewport black. Heavy condensed display headline, one-line subhead, single CTA above the fold.
+Single page, vertically stacked:
+
+1. Header (wordmark + small "Watch on YouTube" link)
+2. Hero (headline + subhead + waitlist primary CTA + social link strip)
+3. What it is (vs traditional dojo)
+4. The Cast (Sofia, Olivia, Ariana)
+5. What you get (Strength / Flexibility / Skill)
+6. Where to drill (YouTube / Instagram / TikTok platform cards)
+7. The Shop (merch category tiles)
+8. How it works (three steps reframed for content workflow)
+9. Bottom CTA (waitlist)
+10. Footer (social links + brand line)
 
 ---
 
 ## Components
 
-- **Button (primary):** Blood background, ink text, square corners, 18px / 28px padding, all-caps Anton at 16px tracking 0.05em. Hover: bone background, ink text.
-- **Button (secondary):** Transparent with 1px bone border, bone text. Hover: bone fill, ink text.
-- **Card:** Steel background, 1px hairline border at bone 10% opacity, 32px padding, no shadows.
-- **Form:** Underline-only inputs (no boxes), bone underline, blood underline on focus. Single horizontal row on desktop (email + button), stacked on mobile.
-- **Icons:** Minimal stroke icons or none. Icon-free is acceptable; numeric labels (01, 02, 03) replace icons in the "How it works" section.
+- **Button (primary):** Blood background, bone text, square corners, 16/28 padding, all-caps Anton 16px tracking 0.05em. Hover: bone background, ink text.
+- **Button (secondary, social link):** Transparent with 1px hairline border, bone text, mono font, all-caps. Includes trailing arrow glyph (`↗`).
+- **Card (cast):** Steel background, hairline border, 32px padding. Numbered cast position, name in display, one-line role.
+- **Card (platform / shop):** Steel background, hairline border, 32px padding. Platform/category title in display, one-line body, optional meta.
+- **Form:** Underline-only inputs.
+- **Social link strip:** Row of three text-only links (YouTube ↗ / Instagram ↗ / TikTok ↗) under the primary CTA.
 
 ---
 
 ## Content
 
-- **Copy Voice:** Clipped. Coach-like. Honest about what it is and what it isn't. Confident, not boastful. No exclamation points. No emoji. No dashes (per house rule).
-- **Imagery Approach:** Hero may render as type-only at launch. Future: high-contrast black-and-white photography of BJJ shapes (shrimp, technical stand-up, guard pulls) with a single blood-red graphic overlay element.
+- **Copy Voice:** Clipped. Coach-like. Confident. No exclamation points. No emoji. No dashes. The cast (Sofia, Olivia, Ariana) is named explicitly as the on-camera team, not described as "kids."
+- **Imagery Approach:** Type-only at launch. Future: high-contrast black and white photography of the sisters performing technique. Treat them as athletes, not as cute kids. Posed shots are out; mid-movement shots are in.
 
 ---
 
 ## Technical
 
-- **Mobile Support:** Mobile-first. Tested at 375 / 768 / 1280. No horizontal scroll. Tap targets 44px minimum.
-- **Dark Mode:** The site IS dark mode. No light variant.
-- **Animation Level:** Subtle. CSS-only. Fade-in-up on scroll for sections. No JS animation libraries.
-- **Accessibility:** WCAG 2.1 AA. Contrast minimum 4.5:1 for body, 3:1 for large headlines. Keyboard-navigable form. `aria-label` on icon-free CTAs.
-- **Build:** Plain `index.html` with embedded `<style>`. No framework. No build step. Vercel static.
-- **Form Handler:** `https://formsubmit.co/frank@craftedsystems.io`. Replace later if migrated to Airtable or Mailchimp.
+- **Mobile Support:** Mobile-first. Tested at 375 / 768 / 1280.
+- **Dark Mode:** The site IS dark mode.
+- **Animation Level:** Subtle. CSS-only. Fade-in-up on scroll.
+- **Accessibility:** WCAG 2.1 AA.
+- **Build:** Plain `index.html` with embedded `<style>`. No framework. Vercel static.
+- **Form Handler:** `https://formsubmit.co/frank@craftedsystems.io`.
+- **Social handles (placeholder, register before launch):**
+  - YouTube: `youtube.com/@bjjtough`
+  - Instagram: `instagram.com/bjjtough`
+  - TikTok: `tiktok.com/@bjjtough`
+- **Shop:** "Drop 01 coming soon" framing pre-launch. When the shop goes live, swap the shop section CTAs to point at the Shopify (or chosen) storefront.
 
 ---
 
 ## References
 
-- **Inspiration:** Whoop.com (athletic restraint), Tonal.com (typographic muscle), FightCamp.com (combat-fitness energy without copying their palette).
-- **Anti-Inspiration:** Generic crossfit sites with neon yellow on black, MMA brand pages with skull graphics, gym sites that lead with stock photography.
-- **Banned:** Gradients. Glass effects. Neon. Skulls. Flames. Dashes. Em-dashes. Inter. Roboto.
-- **Required:** All-caps display headline. Three colors max. Single accent color reserved for action. Mobile-first. Waitlist form above the fold OR one scroll away on mobile.
+- **Inspiration:** Whoop.com, Tonal.com, FightCamp.com (aesthetic). Chloe Ting (free YouTube content + premium funnel). MrBeast Feastables, Logan Paul Maverick (creator-led merch). Shaka Hislop's Born Wrestler (sister-led athletic content brand model).
+- **Anti-Inspiration:** Generic crossfit sites with neon yellow on black. MMA brand pages with skull graphics. Family-vlog aesthetics. Posed-cute kid photography.
+- **Banned:** Gradients (other than radial atmospheric tints in hero). Glass effects. Neon. Skulls. Flames. Dashes. Em-dashes. Inter. Roboto. Family-vlog framing of the cast.
+- **Required:** All-caps display headline. Three colors max. Cast named on the page. Social link strip visible. Shop section visible (even if pre-launch). Mobile-first.
 
 ---
 
@@ -106,9 +123,11 @@ Generous. Section padding 96px desktop, 64px mobile. Container max width 1200px.
   --ink: #0A0A0A;
   --bone: #F5F1EA;
   --bone-soft: rgba(245, 241, 234, 0.7);
+  --bone-faint: rgba(245, 241, 234, 0.5);
   --blood: #E63946;
   --steel: #1C1C1C;
   --hairline: rgba(245, 241, 234, 0.1);
+  --hairline-strong: rgba(245, 241, 234, 0.2);
 
   --font-display: "Anton", "Impact", sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
@@ -123,8 +142,6 @@ Generous. Section padding 96px desktop, 64px mobile. Container max width 1200px.
 
   --radius: 0px;
   --radius-pill: 999px;
-
-  --shadow-none: none;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 200ms;
